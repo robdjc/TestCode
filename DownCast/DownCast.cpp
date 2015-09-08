@@ -32,8 +32,22 @@ int main()
     pB->func2();
 
     // testing undefined behavior
+    // gcc/linux this calls A::func1, but there are no guarantees
     B* badB = (B*) pA;
+
+    cout << "Call with a bad B pointer" << endl;
     badB->func1();
+
+    B* goodB = dynamic_cast<B*>(pA);
+    if(goodB)
+    {
+        cout << "dynamic_cast succeeded" << endl;
+    }
+    else
+    {
+        cout << "dynamic_cast failed" << endl;
+    }
+
 
     return 0;
 }
