@@ -32,7 +32,7 @@ void some_func(A * obj)
 int main()
 {
 
-    cout << "DownCast Test\n";
+    cout << "DownCast Test Start\n";
 
     A* pA = new A;
     pA->func1();
@@ -66,6 +66,8 @@ int main()
     A* ptrA = &myB;
 
     some_func(ptrA);
+
+    cout << "DownCast Test End\n";
 
     return 0;
 }
